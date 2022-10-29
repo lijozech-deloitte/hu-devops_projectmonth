@@ -21,8 +21,12 @@ jobs:
     - name: push preprocessing Image
       run: docker push lijozech12/preprocess:latest
     - name: build Training Image
-      run: docker build ./preprocessing_step --tag lijozech12/test:latest
+      run: docker build ./preprocessing_step --tag lijozech12/train:latest
     - name: push Training Image
+      run: docker push lijozech12/train:latest
+    - name: build Testing Image
+      run: docker build ./preprocessing_step --tag lijozech12/test:latest
+    - name: push Testing Image
       run: docker push lijozech12/test:latest
     
     
