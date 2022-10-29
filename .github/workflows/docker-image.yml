@@ -17,6 +17,6 @@ jobs:
     - name: Login into Dockerhub
       run: echo "${{ secrets.DOCKERPW }}" | docker login -u "lijozech12" --password-stdin
     - name: Push preprocessing Image
-      run: docker build ./preprocessing_step --tag lijozech12/preprocess:latest .
+      run: docker build ./hu-devops_projectmonth/preprocessing_step --tag lijozech12/preprocess:latest .
     
     
