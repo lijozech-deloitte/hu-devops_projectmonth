@@ -28,5 +28,9 @@ jobs:
       run: docker build ./preprocessing_step --tag lijozech12/test:latest
     - name: push Testing Image
       run: docker push lijozech12/test:latest
+    - name: build deploy Image
+      run: docker build ./deploying_step --tag lijozech12/deploy_model:latest
+    - name: push deploy Image
+      run: docker push lijozech12/deploy_model:latest
     
     
