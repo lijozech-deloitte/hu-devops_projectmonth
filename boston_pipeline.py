@@ -5,7 +5,7 @@ def preprocess_op():
 
     return dsl.ContainerOp(
         name='Preprocess Data',
-        image='lijozech12/boston_pipeline_images:preprocess',
+        image='lijozech12/preprocess:latest',
         arguments=[],
         file_outputs={
             'x_train': '/app/x_train.npy',
@@ -19,7 +19,7 @@ def train_op(x_train, y_train):
 
     return dsl.ContainerOp(
         name='Train Model',
-        image='lijozech12/boston_pipeline_images:train',
+        image='lijozech12/train:latest',
         arguments=[
             '--x_train', x_train,
             '--y_train', y_train
@@ -33,7 +33,7 @@ def test_op(x_test, y_test, model):
 
     return dsl.ContainerOp(
         name='Test Model',
-        image='lijozech12/boston_pipeline_images:test',
+        image='lijozech12/test:latest',
         arguments=[
             '--x_test', x_test,
             '--y_test', y_test,
@@ -48,7 +48,7 @@ def deploy_model_op(model):
 
     return dsl.ContainerOp(
         name='Deploy Model',
-        image='lijozech12/boston_pipeline_images:deploy_model',
+        image='lijozech12/deploy_model:latest',
         arguments=[
             '--model', model
         ]
