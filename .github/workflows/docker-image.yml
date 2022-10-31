@@ -17,20 +17,20 @@ jobs:
     - name: Login into Dockerhub
       run: echo "${{ secrets.DOCKERPW }}" | docker login -u "lijozech12" --password-stdin
     - name: build preprocessing Image
-      run: docker build ./Steps/preprocessing_step --tag lijozech12/boston_pipeline_images:preprocess
+      run: docker build ./Steps/preprocessing_step --tag lijozech12/preprocess:latest
     - name: push preprocessing Image
-      run: docker push lijozech12/boston_pipeline_images:preprocess
+      run: docker push lijozech12/preprocess:latest
     - name: build Training Image
-      run: docker build ./Steps/training_step --tag lijozech12/boston_pipeline_images:train
+      run: docker build ./Steps/training_step --tag lijozech12/train:latest
     - name: push Training Image
-      run: docker push lijozech12/boston_pipeline_images:train
+      run: docker push lijozech12/train:latest
     - name: build Testing Image
-      run: docker build ./Steps/testing_step --tag lijozech12/boston_pipeline_images:test
+      run: docker build ./Steps/testing_step --tag lijozech12/test:latest
     - name: push Testing Image
-      run: docker push lijozech12/boston_pipeline_images:test
+      run: docker push lijozech12/test:latest
     - name: build deploy Image
-      run: docker build ./Steps/deploying_step --tag lijozech12/boston_pipeline_images:deploy_model
+      run: docker build ./Steps/deploying_step --tag lijozech12/deploy_model:latest
     - name: push deploy Image
-      run: docker push lijozech12/boston_pipeline_images:deploy_model
+      run: docker push lijozech12/deploy_model:latest
     
     
